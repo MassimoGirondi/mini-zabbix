@@ -1,0 +1,8 @@
+[Unit]
+Description=Cleanup storage for a minimal in-memory Zabbix
+
+[Service]
+ExecStart=/opt/mini-zabbix/cleanup-storage.sh
+Type=oneshot
+User=root
+Restart=no

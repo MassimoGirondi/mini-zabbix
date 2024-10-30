@@ -8,4 +8,12 @@ NET_SNMP_URL=https://sourceforge.net/projects/net-snmp/files/net-snmp/${NET_SNMP
 
 LIBEVENT_URL=https://github.com/libevent/libevent/archive/refs/heads/master.zip
 
+FPING_VERSION=5.2
+FPING_URL=https://fping.org/dist/fping-${FPING_VERSION}.tar.gz
+
 JOBS=3
+ARCH=$(uname -m)
+
+
+MINI_ZABBIX_ROOT=/opt/mini-zabbix
+MOUNTPOINT=${MINI_ZABBIX_ROOT}/tmp

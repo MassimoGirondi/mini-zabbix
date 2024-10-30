@@ -3,7 +3,7 @@ Description=Setup storage for a minimal in-memory Zabbix
 
 [Service]
 ExecStart=/bin/bash -c 'umount /opt/mini-zabbix/tmp || true'
-ExecStart=/bin/bash -c 'mkdir -p /opt/mini-zabbix/tmp; chown -R zabbix /opt/mini-zabbix'
+# ExecStart=/bin/bash -c 'mkdir -p /opt/mini-zabbix/tmp; chown -R zabbix /opt/mini-zabbix/tmp'
 ExecStart=mount -t tmpfs -o size=64M,mode=1777 mini-zabbix /opt/mini-zabbix/tmp
 Type=oneshot
 User=root

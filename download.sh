@@ -18,4 +18,10 @@ fi
 if [ ! -d libevent-master ]; then
 	wget $LIBEVENT_URL -O libevent.zip
 	unzip libevent.zip
+	rm libevent.zip
+fi
+
+if [ ! -d fping-${FPING_VERSION} ]; then
+	wget $FPING_URL -O fping.tar.gz
+	tar -xzvf  fping.tar.gz
 fi

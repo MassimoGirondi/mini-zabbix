@@ -18,6 +18,13 @@ sudo make install
 cd ..
 
 cd zabbix-${ZABBIX_VERSION}
-./configure --prefix=$(pwd)/install --enable-proxy --with-net-snmp --with-sqlite3 --enable-static
+./configure --prefix=$(pwd)/install --enable-proxy --with-net-snmp --with-sqlite3 --enable-static --install-prefix $(pwd)/install
 make -j 3
+make install
+cd ..
+
+cd fping-${FPING_VERSION}
+./configure
+make -j 3
+
 

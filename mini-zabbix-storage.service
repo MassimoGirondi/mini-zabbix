@@ -7,3 +7,5 @@ Type=oneshot
 User=root
 Restart=no
 
+[Install]
+WantedBy=multi-user.target

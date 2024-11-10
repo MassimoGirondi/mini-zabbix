@@ -11,5 +11,6 @@ cp zabbix-${ZABBIX_VERSION}/install/sbin/zabbix_proxy $DEST
 cp zabbix_proxy.conf $DEST
 cp README.md $DEST
 
+tar -czvf $DEST.tar.gz $DEST
 
 

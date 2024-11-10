@@ -15,7 +15,7 @@ adduser --quiet --system --disabled-login --ingroup zabbix --home ${MOUNTPOINT} 
 
 echo "Creating mini-zabbix tmp mount point"
 
-if mountpoint $MOUNTPOINT; do
+if mountpoint $MOUNTPOINT; then
 	echo "$MOUNTPOINT already mounted. Skip creation!"
 else
 	mkdir -p $MOUNTPOINT 

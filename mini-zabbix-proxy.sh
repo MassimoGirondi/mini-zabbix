@@ -9,4 +9,4 @@ if ! mountpoint -q $MOUNTPOINT; then
 fi
 
 
-/opt/mini-zabbix/zabbix_proxy -c /opt/mini-zabbix/zabbix_proxy.conf
+/opt/mini-zabbix/zabbix_proxy -c /opt/mini-zabbix/zabbix_proxy.conf -f

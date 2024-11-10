@@ -7,21 +7,25 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 0
 fi
 
-
 source /opt/mini-zabbix/config.sh
 set -eu
 
-if [ ! -d "$MOUNTPOINT" ]; then
-	mkdir -p  $MOUNTPOINT
-	chown -r zabbix $MOUNTPOINT
-	chattr +i $MOUNTPOINT
-fi
-
 if mountpoint -q $MOUNTPOINT; then
-	umount $MOUNTPOINT
+	echo "$MOUNTPOINT is already mounted!"
+	exit 0
 fi
 
+
+if [ ! -d "$MOUNTPOINT" ]; then
+	# Don't attemp to create the folder, exit with error
+	exit 1
+	#mkdir -p  $MOUNTPOINT
+	#chown -r zabbix $MOUNTPOINT
+	#chattr +i $MOUNTPOINT
+fi
 
 mount -t tmpfs -o size=64M,mode=1777 mini-zabbix $MOUNTPOINT
 echo "Mounted!:"
 mount | grep $MOUNTPOINT
+
+

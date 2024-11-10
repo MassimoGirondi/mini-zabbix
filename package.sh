@@ -2,7 +2,7 @@ source config.sh
 
 DEST=mini-zabbix-${ARCH}-${ZABBIX_VERSION}
 mkdir -p $DEST
-cp *.service *.timer cleanup-storage.sh install_proxy.sh mini-zabbix-storage.sh $DEST
+cp *.service *.timer cleanup-storage.sh install_proxy.sh mini-zabbix-storage.sh mini-zabbix-proxy.sh $DEST
 
 sed '1,/##### INSTALL VALUES/d' config.sh > $DEST/config.sh
 

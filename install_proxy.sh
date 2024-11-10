@@ -15,9 +15,13 @@ adduser --quiet --system --disabled-login --ingroup zabbix --home ${MOUNTPOINT} 
 
 echo "Creating mini-zabbix tmp mount point"
 
-mkdir -p $MOUNTPOINT 
-chown -R zabbix $MINI_ZABBIX_ROOT
-chattr +i $MOUNTPOINT
+if mountpoint $MOUNTPOINT; do
+	echo "$MOUNTPOINT already mounted. Skip creation!"
+else
+	mkdir -p $MOUNTPOINT 
+	chown -R zabbix $MINI_ZABBIX_ROOT
+	chattr +i $MOUNTPOINT
+fi
 
 
 if [ "$(pwd)" != "${MINI_ZABBIX_ROOT}" ]; then

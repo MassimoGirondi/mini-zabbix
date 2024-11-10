@@ -14,6 +14,6 @@ if [[ $DU > $THRESHOLD ]]; then
 	umount $MOUNTPOINT
 	systemctl start mini-zabbix-storage
 	#sqlite3 ${MOUNTPOINT}/zabbix_proxy.sqlite < ${MINI_ZABBIX_ROOT}/zabbix_proxy.sqlite
-	chown zabbix ${MOUNTPOINT}/zabbix_proxy.sqlite 
+	#chown zabbix ${MOUNTPOINT}/zabbix_proxy.sqlite 
 	systemctl start mini-zabbix-proxy
 fi

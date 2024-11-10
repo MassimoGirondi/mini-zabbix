@@ -1,6 +1,7 @@
 [Unit]
 Description=Run a minimal in-memory Zabbix Proxy
-After=mini-zabbix-proxy-storage.service
+After=mini-zabbix-storage.service
+Wants=mini-zabbix-storage.service
 
 [Service]
 ExecStart=/opt/mini-zabbix/zabbix_proxy -c /opt/mini-zabbix/zabbix_proxy.conf
@@ -10,4 +11,3 @@ User=zabbix
 
 [Install]
 WantedBy=multi-user.target
-

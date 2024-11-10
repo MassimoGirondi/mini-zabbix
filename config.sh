@@ -14,6 +14,8 @@ FPING_URL=https://fping.org/dist/fping-${FPING_VERSION}.tar.gz
 JOBS=3
 ARCH=$(uname -m)
 
+# The following line is used to cut the file correctly during installation!
+##### INSTALL VALUES
 
 MINI_ZABBIX_ROOT=/opt/mini-zabbix
 MOUNTPOINT=${MINI_ZABBIX_ROOT}/tmp

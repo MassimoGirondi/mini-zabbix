@@ -8,10 +8,11 @@ fi
 
 source config.sh
 
-echo "Creating zabbix user"
-
-addgroup --system --quiet zabbix
-adduser --quiet --system --disabled-login --ingroup zabbix --home ${MOUNTPOINT} --no-create-home zabbix
+if ! id zabbix &>/dev/null; then
+        echo "Creating zabbix user"
+        addgroup --system --quiet zabbix
+        adduser --quiet --system --disabled-login --ingroup zabbix --home ${MOUNTPOINT} --no-create-home zabbix
+fi
 
 echo "Creating mini-zabbix tmp mount point"
 
@@ -36,9 +37,9 @@ if [ "$(pwd)" != "${MINI_ZABBIX_ROOT}" ]; then
 fi
 
 
-echo "Fixing fping permissions"
-chown root /opt/mini-zabbix/fping
-chattr +s /opt/mini-zabbix/fping
+# echo "Fixing fping permissions"
+# chown root /opt/mini-zabbix/fping
+# chattr +s /opt/mini-zabbix/fping
 
 echo "Installing and enabling systemd services"
 

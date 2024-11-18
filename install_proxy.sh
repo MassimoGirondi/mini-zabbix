@@ -45,4 +45,5 @@ echo "Installing and enabling systemd services"
 
 cp *.service *.timer /etc/systemd/system
 systemctl enable mini-zabbix-storage-cleanup.timer --now
+systemctl enable mini-zabbix-storage.service --now
 systemctl enable mini-zabbix-proxy.service --now
